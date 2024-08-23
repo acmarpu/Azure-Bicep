@@ -1,6 +1,6 @@
-# CTRL+K+C Demonstrate code 
-# "-f" stands for the location of the file
-# 'what-if' and '-c' and '--confirm-with-what-if' preflight validation or preview changes before execution
+# CTRL+K+C Demonstrate code.
+# "-f" stands for the location of the file.
+# 'what-if' and '-c' and '--confirm-with-what-if' preflight validation or preview changes before execution.
 
 # Login to Azure
 az version
@@ -40,15 +40,36 @@ az deployment group create -g 'bicep-demo1' -f .\demo\simplebicepstorage.bicep -
 Reusability
 Robust transitioning of code between environment
 
-
-
 # Deploy storage-w-variables.bicep file with variables and outputs to a RG
 az deployment group create -g 'bicep-demo1' -f .\demo\storage-w-variables.bicep
 
 # Deploy the storage account file with separate parameters JSON file
-az deployment group create -g 'bicep-demo1' -f .\demo\simplebicepstorage.bicep -p \demo\JSON_parameters_file.json -c
+az deployment group create -g 'bicep-demo1' -f .\demo\simplebicepstorage.bicep -p .\demo\JSON_parameters_file.json -c
 
 # Clean-up resources without confirmation prompt
 az group delete --name 'bicep-demo1' --yes
 
 
+# Expressions In Bicep
+Replacing concat() string functions
+using string interpolation to build a string 
+concat (storageName, 'est') = '${storageName}est'
+
+
+# Variables in Bicep
+Variables are not the same as parameters
+variables can take parameters as input
+variables can format and transform input parameters
+
+# output value
+Use outputs to provide after-deployment values
+Outputs can be used on a module
+An output can provide input to the next deployment
+
+
+# module shortcuts 
+module appservice after this when you put '' certain files will popup.
+module appservice after this when you put '..' certain folders and files will popup
+
+# param block shorts
+ctrl+space button

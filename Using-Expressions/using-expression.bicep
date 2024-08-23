@@ -1,8 +1,13 @@
-// Create parameters and dynamically creating nameing convention using expression 
-
+@description('Specifies the Azure storage account name')
 param storageName string = 'adlsautomationstorage'
+
+@description('Specifies the Azure storage location name')
 param azureRegion string = 'eastus2'
+
+@description('Specifies the Azure storage SKU name')
 param storageSku string = 'Standard_LRS'
+
+@description('this value for expression and add the extra value resource naming')
 param environment string = 'dev'
 
 

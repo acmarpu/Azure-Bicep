@@ -1,22 +1,22 @@
 // Azure resourceGroup parameters
 targetScope= 'subscription'
 //targetScope= 'resourceGroup'
-param subscriptionId string = '43664b96-158c-479f-aa95-be96781221c0'
+param subscriptionId string = ''
 param azrgname string = 'testdemo'
 param azrglocation string = 'eastus2'
 
-// Storage account parameteres
+@description('Storage account parameteres') 
 param stgname string ='autoteststorage13'
 
 
-// Webapp parameteres
+@description('Webapp parameteres') 
 param appPlanwin string = 'azappPlanwin'
 param appPlanlinx string = 'azappPlanlinx'
 param webappadlswin string = 'azWebappPlanwin'
 param webappadlslinux string = 'azWebappPlanlinx'
 
 
-// Resource Group Module Deployment 
+@description('resource group module')
 module azrgModule '1.ResourceGroup.bicep' = {
   scope: subscription(subscriptionId)
   name: 'azrgDeploy'
@@ -26,7 +26,8 @@ module azrgModule '1.ResourceGroup.bicep' = {
   }
 }
 
-// Existing resource Group
+
+@description('Existing resource Group') 
 resource rg1 'Microsoft.Resources/resourceGroups@2022-09-01' existing = {
   name: azrgname
   scope: subscription()
@@ -34,8 +35,7 @@ resource rg1 'Microsoft.Resources/resourceGroups@2022-09-01' existing = {
 }
 
 
-// Storage account Module Deployment 
-
+@description('Storage account Module Deployment') 
 module stg1 '3.storage.bicep' = {
   name: stgname
   scope: rg1
@@ -51,8 +51,7 @@ module stg1 '3.storage.bicep' = {
 }
 
 
-// webapp Module Deployment 
-
+@description('webapp Module Deployment ')
 module appplanwin '2.appServicePlan.bicep' = {
   name: 'appplanwindeploy'
   scope: rg1
@@ -69,6 +68,3 @@ module appplanwin '2.appServicePlan.bicep' = {
     rg1
   ]
 }
-
-
-

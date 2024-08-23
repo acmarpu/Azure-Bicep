@@ -4,9 +4,11 @@
 param storageName string
 param azureRegion string
 param environment string = 'dev'
+
+
 var accountName = '${storageName}${environment}'
 
-// Trinary operator
+@description('Trinary operator')
 var storageAccountSkuName = (environment == 'prod') ? 'Standard_GRS' : 'Standard_LRS'
 
 
@@ -21,4 +23,3 @@ resource myNewStorage 'Microsoft.Storage/storageAccounts@2022-09-01'= {
 }
 
 output storageId string = myNewStorage.id
-
