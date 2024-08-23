@@ -36,6 +36,11 @@ az deployment sub what-if -l eastus -f .\deployment.bicep
 az deployment group create -g 'bicep-demo1' -f .\demo\simplebicepstorage.bicep -c
 az deployment group create -g 'bicep-demo1' -f .\demo\simplebicepstorage.bicep --confirm-with-what-if
 
+# Parametrize
+Reusability
+Robust transitioning of code between environment
+
+
 
 # Deploy storage-w-variables.bicep file with variables and outputs to a RG
 az deployment group create -g 'bicep-demo1' -f .\demo\storage-w-variables.bicep
