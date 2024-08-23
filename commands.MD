@@ -14,7 +14,7 @@ az bicep --help
 type res-
 
 # diffrent way 
-type resource and tyep myrestorage tyep storage, select value and selet api versiona and type = select properties 
+type resource and tyep any name myrestorage tyep storage, select value and selet api versiona and type = select properties 
 
 # List all your azure resources
 az storage account list --query [].name -o table
