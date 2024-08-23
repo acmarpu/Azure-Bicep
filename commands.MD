@@ -10,13 +10,19 @@ az account show --query name
 # Help Command
 az bicep --help
 
+# Bicep starting  snippets
+type res-
+
+# diffrent way 
+type resource and tyep myrestorage tyep storage, select value and selet api versiona and type = select properties 
+
 # List all your azure resources
 az storage account list --query [].name -o table
 az acr account list --query [].name -o table
 
-# Azure Bicep will go and build a JSON ARM template
-az bicep build -f .\Desktop\Azure_Biceup\Bicep-demo\azurestorage-sample-demo.bicep
-az bicep build -f .\Bicep-demo\azurestorage-sample-demo.bicep --outfile .\samepath
+# Azure Bicep will go and build a JSON ARM template. representation of this empty Bicep file
+1) az bicep build -f .\Desktop\Azure_Biceup\Bicep-demo\azurestorage-sample-demo.bicep
+2) az bicep build -f .\Bicep-demo\azurestorage-sample-demo.bicep --outfile .\samepath
 
 # Create the resource group
 az group create -l eastus2 -g 'bicep-demo1'
