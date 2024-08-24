@@ -7,7 +7,7 @@ param azrglocation string = 'eastus2'
 
 @description('Storage account parameteres') 
 param stgname string ='autoteststorage13'
-
+param containerName string = 'containername'
 
 @description('Webapp parameteres') 
 param appPlanwin string = 'azappPlanwin'
@@ -40,8 +40,10 @@ module stg1 '3.storage.bicep' = {
   name: stgname
   scope: rg1
     params: {
-    stgname:stgname
-    azrglocation:azrglocation
+
+      azrglocation:azrglocation
+      containerName: containerName
+      storageName: stgname
   }
 
   dependsOn:[
